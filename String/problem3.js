@@ -42,9 +42,9 @@ function removeDuplicateCharacter(givenString){
     }
 
     var str = '';
-    for (var p in strObj) {
-        if (strObj.hasOwnProperty(p)) {
-            str += p ;
+    for (var key in strObj) {
+        if (strObj.hasOwnProperty(key)) {
+            str += key ;
         }
     }
     return str;
