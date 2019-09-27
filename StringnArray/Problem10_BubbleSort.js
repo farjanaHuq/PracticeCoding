@@ -10,6 +10,9 @@
 // Return the index of value, or -1 if the value
 // doesn't exist in the list."""
 
+// test_list = [1,3,9,11,15,19,29]
+// test_val1 = 25
+// test_val2 = 15
 
 //Pseudocode
 //Find the middle item of the array (1)
@@ -20,6 +23,25 @@
 
 function binarySearch(inputArray, value){
     
-    var middle = (inputArray.length -1)/2;
-    console.log(middle);
+    var arrayLength = inputArray.length-1;
+    var middle = Math.round((arrayLength)/2);
+
+    if(value> inputArray[middle]){
+       // middle = middle+Math.round((arrayLength)/2);
+       
+        for(var i=middle; i<=inputArray.length; i++){
+            if(inputArray[i]===value){
+                return true;
+            }
+        }
+    }else if(value < inputArray[middle]){
+        for(var i=0; i<=middle; i++){
+            if(inputArray[i]===value){
+                return true;
+            }
+        }
+    }
+    return false;
 }
+
+console.log(binarySearch([1,3,9,11,15,19,29], 15));
