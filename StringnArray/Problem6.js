@@ -32,16 +32,21 @@ function rotateMatrix(m, n){
     }
 
     while(startColumn<=endRow && startRow<=endColumn){
+        console.log('hi');
         //First Row
         for(let i=startRow; i<=endRow; i++){
-            rotateImage[endRow][i] = results[i][endColumn];
+           
+            rotateImage[endRow][i] =counter;
+            counter++;
         } 
+        //results[i][endColumn]
         endColumn--;
         startRow++;
   
     }
     
     console.log(results);
-    console.log(rotateImage)
+    console.log(rotateImage);
+   
 }
 rotateMatrix(3, 4);
