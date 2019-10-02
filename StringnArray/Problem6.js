@@ -1,52 +1,26 @@
 //Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, 
 //write a method to rotate the image by 90 degrees Can you do this in place?
+//[1 2 3 
+// 4 5 6
+// 7 8 9]
+function rotateMatrix90Degree(matrix, N) {
 
-function rotateMatrix(m, n){
-     
-    let results = [];
-    let rotateImage = [];
+    console.log(matrix);
+    let rotatedMatrix = [];
 
-    for(let i=0; i<n; i++){
-        results.push([]);
+    for (var i = 0; i < N; i++) {
+        rotatedMatrix.push([]);
     }
 
-    for(let i=0; i<m; i++){
-        rotateImage.push([]);
-    }
-   
-    var counter = 1;
-    var startColumn = 0;
-    var endColumn = m-1;
-    var startRow = 0;
-    var endRow = n-1;
 
-    while(startColumn<=endColumn && startRow<=endRow){
-        //First Row
-        for(let i=startColumn; i<=endColumn; i++){
-            results[startRow][i] =  counter;
-            //console.log(counter);
-            counter++;
-        } 
-        startRow++;
-  
-    }
+    for (let i = 0; i < N; i++) {
 
-    while(startColumn<=endRow && startRow<=endColumn){
-        console.log('hi');
-        //First Row
-        for(let i=startRow; i<=endRow; i++){
-           
-            rotateImage[endRow][i] =counter;
-            counter++;
-        } 
-        //results[i][endColumn]
-        endColumn--;
-        startRow++;
-  
+        for (j = N - 1; j >= 0; j--) {
+            rotatedMatrix[i].push(matrix[j][i]);
+        }
     }
-    
-    console.log(results);
-    console.log(rotateImage);
-   
+    return rotatedMatrix;
 }
-rotateMatrix(3, 4);
+
+const matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+console.log(rotateMatrix90Degree(matrix, 3));
