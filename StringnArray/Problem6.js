@@ -4,11 +4,13 @@
 // 4 5 6
 // 7 8 9]
 function rotateMatrix90Degree(matrix, N) {
+    if(matrix === null|| N === null){
+        return;
+    }
 
     console.log(matrix);
     let rotatedMatrix = [];
-
-    for (var i = 0; i < N; i++) {
+        for (var i = 0; i < N; i++) {
         rotatedMatrix.push([]);
     }
 
