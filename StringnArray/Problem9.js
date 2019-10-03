@@ -20,11 +20,11 @@ function findELementZero(matrix, m, n){
        for(let j=0;j<m;j++){
            matrix[j][col] = 0;
        }
-        return matrix;
+       return matrix;
     }
 }
 
 //const testMatrix = [[1, 2, 3], [4, 0, 6], [7, 8, 9]];
-const testMatrix = [[1, 2, 3], [4, 0, 6], [7, 8, 0]];
+const testMatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 0]];
 
 console.log(findELementZero(testMatrix, 3,3));
