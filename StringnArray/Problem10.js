@@ -40,3 +40,5 @@ function buildCharMap(str) {
 }
 
 console.log(isSubstring('waterbottle', 'erbottlewat'));
+
+console.log('9' === 9);

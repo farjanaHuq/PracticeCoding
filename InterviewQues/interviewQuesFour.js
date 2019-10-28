@@ -49,12 +49,12 @@ sayHelloMika(); //hello Mika
 //and side effects. it is declarative rather than imperative.
 
 //Q7.What is the difference between sychronous and asynchronous code?
-//Synchronous code is blocking.Must complete before we move on to something else.
+//Synchronous code is blocking. Must complete before we move on to something else.
 //Asynchronous code is not blocking, we can finish other task and come to it after it fineshes excuting.
 
 //Q8: How do you determine the type of an array?
 
-//Q9: What is higher order function?
+//Q9: What is higher order function?cd
 //A higher order function is a function that takes function as an argument and return that function as a result.
 //Example: closure
 
@@ -63,7 +63,7 @@ sayHelloMika(); //hello Mika
 //Q11: What is type coercion?
 //Javascript sometimes allows something of a particular type to be coerced into another type.
 //console.log("Hello"+8) => Hello 8  //Number 8 is coerced to a string
-//('9'===9) //true
+//('9'== 9) //true
 
 //Q12:What is the difference between two way data binding and one data binding?
 //Two way data binding - UI and modal data change together  //hard to debug

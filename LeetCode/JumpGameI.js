@@ -11,8 +11,8 @@
 // Input: [2,3,1,1,4]
 // Output: true
 // Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
-// Example 2:
 
+// Example 2:
 // Input: [3,2,1,0,4]
 // Output: false
 // Explanation: You will always arrive at index 3 no matter what. Its maximum
@@ -53,6 +53,7 @@ var canJump = function(nums) {
     for (let i = 1; i < nums.length; i++){
         if (prevMaxIdxJump < i) return false;
         prevMaxIdxJump = Math.max(prevMaxIdxJump, i+nums[i]);
+        //console.log(prevMaxIdxJump, i+nums[i],i);
     }
     return true; 
 };
