@@ -61,16 +61,45 @@ function binarySearch(inputArray, value){
    
 }
 
-console.log('====================Test One =====================');
-console.log(binarySearch([1,3,9,11,15,19,29], 15));
-console.log('====================Test Two =====================');
-console.log(binarySearch([1,3,9,11,15,19,29], 25));
-console.log('====================Test Three =====================');
-console.log(binarySearch([1,3,9,11,15,19,29], 10));
-console.log('====================Test Four =====================');
-console.log(binarySearch([1,3,9,11,15,19,29], 1));
-console.log('====================Test Five =====================');
-console.log(binarySearch([1,3,9,11,15,19,29], 9));
-console.log('====================Test Six =====================');
-console.log(binarySearch([], 25));
+//===============================Recursion===========================================
+function ifExists(arr,num){
+    
+   if(arr.length === 0) return false;
+   var middle = Math.round(arr.length/2);
+   var end = arr.length-1;
+   if(arr[middle]>num){
+    findValue(0, middle);
+   }else{
+    findValue(middle, end);
+   }
+  
+
+   function findValue(start, end){
+       let value = arr[end-start];
+       console.log(value);
+       findValue(start+1, end);
+       if(value === num){
+         return true;
+        // console.log('true');
+       }
+      
+   }
+
+
+}
+
+console.log(ifExists([1,3,9,11,15,19,29], 12));
+
+// console.log('====================Test One =====================');
+// console.log(binarySearch([1,3,9,11,15,19,29], 15));
+// console.log('====================Test Two =====================');
+// console.log(binarySearch([1,3,9,11,15,19,29], 25));
+// console.log('====================Test Three =====================');
+// console.log(binarySearch([1,3,9,11,15,19,29], 10));
+// console.log('====================Test Four =====================');
+// console.log(binarySearch([1,3,9,11,15,19,29], 1));
+// console.log('====================Test Five =====================');
+// console.log(binarySearch([1,3,9,11,15,19,29], 9));
+// console.log('====================Test Six =====================');
+// console.log(binarySearch([], 25));
 
