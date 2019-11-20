@@ -62,33 +62,28 @@ function binarySearch(inputArray, value){
 }
 
 //===============================Recursion===========================================
-function ifExists(arr,num){
+function findNum(arr,start, end, target){
     
    if(arr.length === 0) return false;
-   var middle = Math.round(arr.length/2);
-   var end = arr.length-1;
-   if(arr[middle]>num){
-    findValue(0, middle);
-   }else{
-    findValue(middle, end);
-   }
   
+   var middle = Math.round(start+end/2);
+   console.log(middle);
 
-   function findValue(start, end){
-       let value = arr[end-start];
-       console.log(value);
-       findValue(start+1, end);
-       if(value === num){
-         return true;
-        // console.log('true');
-       }
-      
+   if(start>=end) return false;
+   if(arr[middle] === target) return true;
+
+   if(arr[middle]>target) {
+      return findNum(arr, middle+1,end, target);
+   }else if(arr[middle]<target){
+       return findNum(arr,start,middle-1,target);
+   }else{
+       return false;
    }
-
-
 }
 
-console.log(ifExists([1,3,9,11,15,19,29], 12));
+
+
+console.log(findNum([1,3,9,11,15,19],0,6, 11));
 
 // console.log('====================Test One =====================');
 // console.log(binarySearch([1,3,9,11,15,19,29], 15));
