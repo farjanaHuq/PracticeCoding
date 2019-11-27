@@ -22,15 +22,18 @@ class BookStack{
     }
 }
 
+//Run time complexity: O(n)
+
 var bookStack = new BookStack();
 //Adding items
 bookStack.push('Kite Runner');
 bookStack.push('Al Chemist');
 bookStack.push('The Third Door');
 bookStack.push('Educated');
+bookStack.push('The Book Thief');
 
 console.log('Check push()',  bookStack);
 bookStack.pop();
 console.log('Check pop()',  bookStack);
-console.log('peek',bookStack.peek() );
-console.log('length',bookStack.getLength() );
+console.log('peek', bookStack.peek() );
+console.log('length', bookStack.getLength() );

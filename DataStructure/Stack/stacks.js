@@ -1,4 +1,5 @@
-class Stack{
+//Stacks are the data structures that follow 'Last In First Out' paradigm.
+class Stacks{
     constructor(){
         this.storage = [];
         this.length = 0;
@@ -7,11 +8,10 @@ class Stack{
         return this.length;
     }
     push(data){
-        this.storage[this.length] = data;
-        this.length++;
+        this.storage[this.length++] = data;
     }
     pop(){
-       this.storage[this.length--] = null;  
+       this.storage[--this.length] = null;  
 
     }
     //returns last value added to the slack
@@ -26,7 +26,7 @@ class Stack{
 }
 
 
-var myStack = new Stack();
+var myStack = new Stacks();
 //push()
 myStack.push(4);
 myStack.push(5);
