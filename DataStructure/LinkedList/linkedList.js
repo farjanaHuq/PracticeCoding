@@ -1,20 +1,35 @@
-class Node{
-    constructor(data, next=null){
+class Node {
+    constructor(data, next = null) {
         this.data = data;
         this.next = next;
     }
 }
 
-class LinkedList{
-    constructor(){
+class LinkedList {
+    constructor() {
         this.head = null;
     }
+    getELement(index) {
+        if (!this.head) return null;
+       // if(node.data === null) return null;
+        let node = this.head;
+        
+        let listIndex = 0;
+        while (node) {
+            node = node.next;
+            listIndex++;
+            if (listIndex === index) {
+                return node.data;
+            }
+        }
+
+    }
     //Makes a Linked List from an array
-    createList(array){  
+    createList(array) {
         //insert first 
-        for(let i=0; i<array.length;i++){
+        for (let i = 0; i < array.length; i++) {
             this.head = new Node(array[i], this.head);
-        }   
+        }
 
         //insert last 
         //  var node = new Node(array[1], node);
@@ -22,31 +37,43 @@ class LinkedList{
         //  for(let i=2; i<array.length;i++){
         //     node.next = new Node(array[i], node);
         // }  
-   }
-   //Adds element to the end of an array
-   add(item){
-
-        if(!this.head) return null;
+    }
+    //Adds element to the end of an array
+    add(element) {
+        if (!this.head) return null;
         let node = this.head;
-        while(node){
+        while (node) {
             node = node.next;
-            if(!node.next) {
-                node.next = new Node(item);
+            if (!node.next) {
+                node.next = new Node(element);
             };
-            break; 
-        }      
+            break;
+        }
+    }
+    insertAt(element, index) {
+
+        if (!this.head) return null;
+        let node = this.head;
+        let listIndex = 0;
+        let storeNextNode = new Node();
+        while (node) {
+            node = node.next;
+            listIndex++;
+            if (listIndex === index) {
+            storeNextNode.data = node.data;
+            node.next = new Node(element, storeNextNode);
+            }
+        }
     }
 }
 
 //var arr= [2,3,7,9,13,12];
-var arr2= [2,3];
+var arr2 = [2, 3];
 var myLinkedList = new LinkedList();
-// const nodeOne = new Node(arr[0]);
-// myLinkedList.head = nodeOne;
-// for(let i=1; i<arr.length;i++){
-//     myLinkedList.add(arr[i]);
-// }
+
 
 myLinkedList.createList(arr2);
 myLinkedList.add(4);
+myLinkedList.insertAt(5,2);
 console.log(myLinkedList);
+console.log(myLinkedList.getELement(2));
