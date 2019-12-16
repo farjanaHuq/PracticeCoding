@@ -14,8 +14,33 @@
 //Take mun if choice and 2 answers = min(2,1) =1.
 //<---------------------------------------------Dynammic Programming => Optimized Solution--------------------------------------------------------->
 function coinChangeOptimizedDP(coins, amount) {
-    
+    var array = [];
+    var row = 0;
+    var col = 0;
+  
+    //creating rows of an 1D array
+    for (; col <= amount; col++) {
+      array.push(0);
+    }
+    //if there are no denominations and the amount is positive, there is no solution, so for convenience the result 
+  //can be infinite, in this case: assume 100 in this case
+  for (let col = 1; col <= amount; col++) {
+    array[col] = 100;
+  }
+    for (let i = 1; i <= coins.length; i++) {
+    //declaring the current coin
+    let current_coin = coins[i - 1];
+    for (let col = current_coin; col <= amount; col++) {
+      array[col] = Math.min(array[col], array[col - current_coin] + 1);
+    }
+  }
+  console.log(array);
+  return array[amount];
 }
+console.log("Min ways to choose the amount is: ",coinChangeOptimizedDP([1, 3, 4], 6));
+
+
+
 //<---------------------------------------------Dynammic Programming => min ways to choose your amount--------------------------------------------------------->
 function coinChangeDP(coins, amount) {
   var array = [];
@@ -23,6 +48,7 @@ function coinChangeDP(coins, amount) {
   var col = 0;
 
   //creating rows of an 1D array
+  //if amount = 0, there is zero way to choose the number of coins
   for (; row <= coins.length; row++) {
     array.push([0]);
   }
@@ -60,10 +86,12 @@ function coinChangeDP(coins, amount) {
       }
     }
   }
-  console.log(array);
+  //console.log(array);
   return array[coins.length][amount];
 }
-console.log("Min ways to choose the amount is: ", coinChangeDP([1, 3, 4], 5));
+//console.log("Min ways to choose the amount is: ", coinChangeDP([1, 3, 4], 5));
+
+
 
 //<---------------------------------------------Bottom-down solution--------------------------------------------------------->
 function coinsChangeWays(coins, amount) {
