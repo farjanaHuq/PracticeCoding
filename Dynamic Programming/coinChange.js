@@ -14,20 +14,20 @@
 //Take mun if choice and 2 answers = min(2,1) =1.
 //<---------------------------------------------Dynammic Programming => Optimized Solution--------------------------------------------------------->
 function coinChangeOptimizedDP(coins, amount) {
-    var array = [];
-    var row = 0;
-    var col = 0;
-  
-    //creating rows of an 1D array
-    for (; col <= amount; col++) {
-      array.push(0);
-    }
-    //if there are no denominations and the amount is positive, there is no solution, so for convenience the result 
+  var array = [];
+  var row = 0;
+  var col = 0;
+
+  //creating rows of an 1D array
+  for (; col <= amount; col++) {
+    array.push(0);
+  }
+  //if there are no denominations and the amount is positive, there is no solution, so for convenience the result
   //can be infinite, in this case: assume 100 in this case
   for (let col = 1; col <= amount; col++) {
     array[col] = 100;
   }
-    for (let i = 1; i <= coins.length; i++) {
+  for (let i = 1; i <= coins.length; i++) {
     //declaring the current coin
     let current_coin = coins[i - 1];
     for (let col = current_coin; col <= amount; col++) {
@@ -37,9 +37,10 @@ function coinChangeOptimizedDP(coins, amount) {
   console.log(array);
   return array[amount];
 }
-console.log("Min ways to choose the amount is: ",coinChangeOptimizedDP([1, 3, 4], 6));
-
-
+console.log(
+  "Min ways to choose the amount is: ",
+  coinChangeOptimizedDP([1, 3, 4], 6)
+);
 
 //<---------------------------------------------Dynammic Programming => min ways to choose your amount--------------------------------------------------------->
 function coinChangeDP(coins, amount) {
@@ -62,7 +63,7 @@ function coinChangeDP(coins, amount) {
   for (let row = 0; row <= coins.length; row++) {
     array[row][0] = 0;
   }
-  //if there are no denominations and the amount is positive, there is no solution, so for convenience the result 
+  //if there are no denominations and the amount is positive, there is no solution, so for convenience the result
   //can be infinite, in this case: assume 100 in this case
   for (let col = 1; col <= amount; col++) {
     array[0][col] = 100;
@@ -91,9 +92,7 @@ function coinChangeDP(coins, amount) {
 }
 //console.log("Min ways to choose the amount is: ", coinChangeDP([1, 3, 4], 5));
 
-
-
-//<---------------------------------------------Bottom-down solution--------------------------------------------------------->
+//<---------------------------------------------Bottom-up solution--------------------------------------------------------->
 function coinsChangeWays(coins, amount) {
   var array = [];
   var row = 0;
@@ -131,3 +130,16 @@ function coinsChangeWays(coins, amount) {
 }
 
 //coinsChangeWays([1,2,3], 5);
+
+
+var s = '1234';
+let reverseString = s.split('').reverse().join('');
+ console.log();
+
+    // for(let i=0; i<s.length;i++){
+    //   // console.log(s[i]);
+    //   reverseString = s[i]+reverseString;
+    // }
+    console.log(reverseString);
+
+
