@@ -18,11 +18,16 @@ console.log(rec.area);
 
 function getCount(objects) {
     var count = 0;
-    objects.forEach(element => {
-        if(element.x===element.y){
-            count++;
-        }
-    });
+    // objects.forEach(element => {
+    //     if(element.x===element.y){
+    //         count++;
+    //     }
+    // })
+    for(let elem of objects){
+       if(elem.x === elem.y){
+           count++;
+       }
+    }
     return count;
 }
 objects = [
