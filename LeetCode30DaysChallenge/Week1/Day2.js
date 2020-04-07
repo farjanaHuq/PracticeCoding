@@ -29,6 +29,25 @@
 
 
 var squareSums = [] ;
+
+var findDuplicates = function(squareSums){
+  var object = {};
+  for(var elem of squareSums){
+     if(!object[elem]){
+       object[elem]=1;
+     }else{
+       object[elem]++;
+     }
+  }
+  for(var key in object){
+    if(object[key]>1){
+      return true;
+    }else{
+      return false;
+    }
+  }
+}
+
 var isHappy = function(n) {
 
   var sum = 0;
@@ -50,23 +69,7 @@ var isHappy = function(n) {
  
 };
 
-var findDuplicates = function(squareSums){
-   var object = {};
-   for(var elem of squareSums){
-      if(!object[elem]){
-        object[elem]=1;
-      }else{
-        object[elem]++;
-      }
-   }
-   for(var key in object){
-     if(object[key]>1){
-       return true;
-     }else{
-       return false;
-     }
-   }
-}
+
 
 console.log(isHappy(2));
 
