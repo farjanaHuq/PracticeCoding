@@ -30,6 +30,7 @@ var groupAnagrams = function(strs) {
         for(let i=1; i<strs.length;i++){
             if(isAnagram(strs[j], strs[i])){
                 subArray.push(strs[i]);
+                console.log(subArray);
                 strs.splice(i,1);
             }
         }
@@ -38,7 +39,8 @@ var groupAnagrams = function(strs) {
         result.push(subArray);
         j-=1;
     }
-    return result;
+    console.log(result);
+  // return result;
 
 };
 
@@ -73,3 +75,4 @@ var strToObject = function(str){
 //console.log(strToObject('apple'));
 //console.log(isAnagram('eat', 'ate'));
 groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]);
+groupAnagrams([" ", " ", " "]);
