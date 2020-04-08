@@ -25,22 +25,21 @@
 
 var groupAnagrams = function(strs) {
     var result = [];
-    
-    while(strs.length){
-        let i=1, j=0;
+    for(let j=0; j<strs.length;j++){
         let subArray = [];
-        subArray.push(strs[j]);
-
-        if(isAnagram(strs[j], strs[i])){
-            subArray.push(strs[i]);
-            strs.splice(i,1);
+        for(let i=1; i<strs.length;i++){
+            if(isAnagram(strs[j], strs[i])){
+                subArray.push(strs[i]);
+                strs.splice(i,1);
+            }
         }
-            strs.splice(j,1);
-            console.log('input arr: ',strs);
-            result.push(subArray);
-            console.log('result arr: ', result)
-            i++;
-      }
+        subArray.push(strs[j]);
+        strs.splice(j,1);
+        result.push(subArray);
+        j-=1;
+    }
+    return result;
+
 };
 
 //checks if two strings are anagrams
