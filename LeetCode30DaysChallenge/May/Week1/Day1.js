@@ -1,35 +1,55 @@
-//Link:https://leetcode.com/explore/featured/card/may-leetcoding-challenge/534/week-1-may-1st-may-7th/3320/
-// Given a string, find the first non-repeating character in it and return it's index. If it doesn't exist, return -1.
+//Problem: First Bad Version
+//Link: https://leetcode.com/explore/featured/card/may-leetcoding-challenge/534/week-1-may-1st-may-7th/3316/
 
-// Examples:
+// You are a product manager and currently leading a team to develop a new product. Unfortunately, 
+//the latest version of your product fails the quality check. Since each version is developed based on the previous 
+//version, all the versions after a bad version are also bad.
 
-// s = "leetcode"
-// return 0.
+// Suppose you have n versions [1, 2, ..., n] and you want to find out the first bad one, which causes all the following ones to be bad.
 
-// s = "loveleetcode",
-// return 2.
-// Note: You may assume the string contain only lowercase letters.
+// You are given an API bool isBadVersion(version) which will return whether version is bad. 
+//Implement a function to find the first bad version. You should minimize the number of calls to the API.
 
+// Example:
+
+// Given n = 5, and version = 4 is the first bad version.
+
+// call isBadVersion(3) -> false
+// call isBadVersion(5) -> true
+// call isBadVersion(4) -> true
+
+// Then 4 is the first bad version. 
 
 /**
- * @param {string} s
- * @return {number}
+ * @param {string} ransomNote
+ * @param {string} magazine
+ * @return {boolean}
  */
-var firstUniqChar = function(s) {
-   var charObj = {};
-   for(let char of s){
-       if(!charObj[char]){
-           charObj[char]=1;
-       }else{
-           charObj[char]++;
-       }
-    }
-    for(let char in charObj){
-        if(charObj[char]===1){
-            return (s.indexOf(char));
-        }
-    }
-    return -1;
-};
 
-console.log(firstUniqChar('loveleetcode'));
+ /**
+ * Definition for isBadVersion()
+ * 
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+
+isBadVersion = function(version) {
+  
+};
+var solution = function(isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function(n) {
+        
+    };
+};
