@@ -21,3 +21,75 @@
 // Input: num = "10", k = 2
 // Output: "0"
 // Explanation: Remove all the digits from the number and it is left with nothing which is 0.
+
+/**
+ * @param {string} num
+ * @param {number} k
+ * @return {string}
+ */
+class Stacks{
+    constructor(){
+        this.storage = [];
+        this.length = 0;
+    }
+    getLength(){
+        return this.length;
+    }
+    push(data){
+        this.storage[this.length++] = data;
+    }
+    pop(){
+       this.storage[--this.length] = null;  
+
+    }
+    //returns last value added to the slack
+    peek(){
+       return this.storage[this.length-1];
+    }
+    
+    isEmpty(){
+        return this.length === 0;
+    }
+  
+}
+
+var removeKdigits = function(num, k) {
+    var size = num.length;
+    var counter = 0;
+    var stack = new Stacks();
+    var result = '';
+
+    if(k === num.length)return "0";
+  
+    //Greedy Algorithm : 
+    //First push the char at index=0 to the stack.
+    //compare each char of num with stack[currentIndex]
+    //if the last value in the stack is greater than num.charAt(currentIndex), then pop() the larger value
+
+    while(counter<size){
+
+       while(k>0 && !stack.isEmpty() && stack.peek()>num.charAt(counter)){
+           stack.pop();
+           k--;
+       }
+       stack.push(num.charAt(counter));
+       counter++;
+    }
+    //Remove duplicate elements like '11111'
+    while(k>0){
+        stack.pop();
+        k--;
+    }
+    for(let char of stack.storage){
+        result += char;
+    }
+    if(result = '0') return '0';
+    if(result.length>0 && result.charAt(0)=='0'){
+        result = result.slice(1, result.length);
+    }
+    console.log(typeof(result));
+    return result;
+};
+
+
+console.log((removeKdigits("112", 1)));
