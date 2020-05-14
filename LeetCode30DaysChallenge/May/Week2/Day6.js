@@ -76,10 +76,10 @@ var removeKdigits = function(num, k) {
        counter++;
     }
     //Remove duplicate elements like '11111'
-    while(k>0){
-        stack.pop();
-        k--;
-    }
+    // while(k>0){
+    //     stack.pop();
+    //     k--;
+    // }
     for(let char of stack.storage){
         result += char;
     }
