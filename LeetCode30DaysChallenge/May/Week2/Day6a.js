@@ -31,19 +31,21 @@ var removeKdigits = function(num, k) {
     for(let char of num){
         numArr.push(parseInt(char));
     }
+    //Compare item at index j with the next index j+1, if bigger then delete item at index j
+
     for(var i=0; i<k; i++){
         var j=0;
         
         while(j<numArr.length-1 && numArr[j]<=numArr[j+1]){
-            j++;   
-             
+            j++;           
         }
         numArr.splice(j, 1);  
     }
-    
+    //Removes the leading zero
     while(numArr.length>1 && numArr[0]===0){
         numArr.splice(0,1);
     }
+    //Converts to string again
     var finalstring = '';
     for(let num of numArr){
         finalstring+=num.toString();
@@ -51,5 +53,3 @@ var removeKdigits = function(num, k) {
     return finalstring;
 }
 
-// removeKdigits("1432219", 3);
-console.log(removeKdigits("112", 1));
