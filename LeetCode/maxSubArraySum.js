@@ -13,6 +13,8 @@
  * @param {number[]} nums
  * @return {number}
  */
+
+ //Kadane's Algorithm
 var maxSubArray = function(nums) {
     var maxSumAtCurrentIndex = 0;
     var maxSum = Number.MIN_SAFE_INTEGER; //Declaring minimum integer
@@ -20,8 +22,8 @@ var maxSubArray = function(nums) {
     for(let elem of nums){
        
         maxSumAtCurrentIndex = maxSumAtCurrentIndex+elem;
-        if(maxSumAtCurrentIndex< 0){
-            maxSumAtCurrentIndex = 0;
+        if(maxSumAtCurrentIndex< elem){
+            maxSumAtCurrentIndex = elem;
         }
         if(maxSum<maxSumAtCurrentIndex){
             maxSum = maxSumAtCurrentIndex;

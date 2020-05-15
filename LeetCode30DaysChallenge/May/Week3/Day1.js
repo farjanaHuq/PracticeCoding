@@ -38,11 +38,44 @@
  * @param {number[]} A
  * @return {number}
  */
-var maxSubarraySumCircular = function(A) {
-    
-};
- 
+var maxSubarraySumCircular = function(A) { 
+    var size = A.length; 
 
+    // Case 1: get the maximum sum using standard kadane's algorithm 
+    var maxKadane = kadane(A); 
+    var maxWrap  =  0; 
+
+    for (var i = 0; i < size; i++) 
+    { 
+        maxWrap += A[i]; // Calculate array-sum 
+        A[i] = -A[i];  // invert the array (change sign) 
+    } 
+    // max sum with corner elements will be: 
+    // array-sum - (-max subarray sum of inverted array) 
+    maxWrap = maxWrap + kadane(A); 
+   
+    if(maxWrap === 0) return maxKadane;
+    // The maximum circular sum will be maximum of two sums 
+    return (maxWrap > maxKadane)? maxWwrap: maxKadane; 
+};
+
+function kadane(A){
+    var maxSumAtCurrentIndex = 0;
+    var maxSum = Number.MIN_SAFE_INTEGER; //Declaring minimum integer
+
+    for(let elem of A){
+       
+        maxSumAtCurrentIndex = maxSumAtCurrentIndex+elem;
+        if(maxSumAtCurrentIndex< elem){
+            maxSumAtCurrentIndex = elem;
+        }
+        if(maxSum<maxSumAtCurrentIndex){
+            maxSum = maxSumAtCurrentIndex;
+        }
+    }
+    return maxSum;
+}
+console.log(maxSubarraySumCircular([-2,-3,-1]));
 // Note:
 
 // -30000 <= A[i] <= 30000
