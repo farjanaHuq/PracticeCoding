@@ -40,8 +40,6 @@
  */
 var maxSubarraySumCircular = function(A) { 
     var size = A.length; 
-
-    // Case 1: get the maximum sum using standard kadane's algorithm 
     var maxKadane = kadane(A); 
     var maxWrap  =  0; 
 
