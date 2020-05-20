@@ -38,52 +38,30 @@
 var findAnagrams = function(s, p) {
     var sizeOfp = p.length;
     var indexes = [];
-    var arrayOfS = []
+
+    if(s.length<sizeOfp) return indexes;
 
     for(var i=0; i<s.length; i++){
         let str = s.slice(i, i+sizeOfp);
-        if(str.length === sizeOfp){
-            if(anagrams(p, str)){
-                indexes.push(i);
-            }
-        }else{
-            break;
+        if(str.length<sizeOfp) break;
+        console.log(str);  
+        if(anagrams(p, str)){
+            indexes.push(i);    
         }
         
     }
     return indexes;
-
 };
-function anagrams(stringA, stringB) {
-    
-    const aCharMap = buildCharMap(stringA);
-    const bCharMap = buildCharMap(stringB);
 
-    if(Object.keys(aCharMap).length !== Object.keys(bCharMap).length){
-        return false;
-    }
-    for(let char in aCharMap){
-        if(aCharMap[char]!==bCharMap[char]){
-            return false;
-        }
-    }
-    return true;
+function anagrams(stringA, stringB) {
+     let strA = stringA.split().sort().join('');
+     let strB = stringB.split().sort().join('');
+    console.log(strA, strB);
+    if(strA!==strB) return false;
+    
+  return true;
   
 }
 
-function buildCharMap(str){
-    var charMap = {};
-    for(let char of str){
-        if(!charMap[char]){
-            charMap[char]=1
-        }else{
-            charMap[char]++;
-        }
-    }
-    //  console.log(charMap);
-    return charMap;
-}
 
-
-console.log(findAnagrams("abab", "ab"));
-//console.log(anagrams("apple", "abc"));
+console.log(findAnagrams("cbaebabacd" , "abc"));
