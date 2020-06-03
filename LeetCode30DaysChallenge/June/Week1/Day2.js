@@ -73,11 +73,13 @@ class LinkedList{
     }
 }
 
+     
+
 
  var arr1 = [4,5,1,9];
  var linkedList = new LinkedList();
 console.log(linkedList.createList(arr1));
 console.log(linkedList.getELement(2));
 // console.log(linkedList.deleteNode(5));
-linkedList.deleteNode(5)
+deleteNode(5);
  
