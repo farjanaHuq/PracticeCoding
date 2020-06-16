@@ -41,14 +41,18 @@ var largestDivisibleSubset = function(nums) {
     }
     let prev = -1;
     for(let i=len-1; i>=0; i--){ 
-
-         if(dp[i]==max && (prev%sortedArr[i]===0 || prev==-1)){
+        var index = 0;
+        // console.log(prev, sortedArr[i])
+         console.log(dp[i], max);
+         if(dp[i]==max && ((prev%sortedArr[i])==0 || prev==-1)){
             subSet.push(sortedArr[i]);
+            max--; 
          }
-         prev = sortedArr[i];
-         console.log(prev);
-         max--; 
-         
+        // console.log((prev%sortedArr[i])==0);
+         prev = subSet[index];
+       
+         index++;
+
     }
 
 

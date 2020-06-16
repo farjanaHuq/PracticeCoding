@@ -162,6 +162,7 @@ class LinkedList {
             console.log(this.head);
         }
     }
+   
 }
 
 //var arr= [2,3,7,9,13,12];
