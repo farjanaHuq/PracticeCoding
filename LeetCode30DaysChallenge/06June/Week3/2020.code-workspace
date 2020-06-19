@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "../../../../../UserLogin-MySQL"
+		},
+		{
+			"path": "../../../../../appKraft"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Practice"
+	}
+}

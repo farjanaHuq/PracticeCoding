@@ -1,8 +1,8 @@
 class TreeNode {
     constructor(data, left, right) {
-        this.data = (data===undefined ? 0 : data);
-        this.left = (left===undefined ? null : left);
-        this.right = (right===undefined ? null : right);
+        this.data = (data === undefined ? 0 : data);
+        this.left = (left === undefined ? null : left);
+        this.right = (right === undefined ? null : right);
     }
     insert(val){
         if(val < this.data && this.left){
@@ -23,8 +23,9 @@ class TreeNode {
 var maple = new TreeNode(4,2,7);
 maple.left = new TreeNode(2,1,3);
 maple.right = new TreeNode(7,5,null);
+maple.insert(-1);
 
-//console.log(maple);
+console.log(maple);
 
 var searchBST = function(root, val) {
     console.log(root);
