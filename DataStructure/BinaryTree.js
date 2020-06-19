@@ -44,20 +44,32 @@ var insertIntoBST = function(root, val) {
     
     var currentNode = new TreeNode();
     currentNode = root;
-    
-    while(true){
-        if(val<currentNode.val&& currentNode.left){
-                  currentNode = currentNode.left;
-        }else if(val<currentNode.val && !currentNode.left){
-                  currentNode.left = new TreeNode(val);
-                  break;
-        }else if(val> currentNode.val && currentNode.right){
-                  currentNode = currentNode.right;
-        }else if(val> currentNode.val && !currentNode.right){
-                  currentNode.right = new TreeNode(val);
-                  break;
-        }
+    //Iterative
+    // while(true){
+    //     if(val<currentNode.val&& currentNode.left){
+    //               currentNode = currentNode.left;
+    //     }else if(val<currentNode.val && !currentNode.left){
+    //               currentNode.left = new TreeNode(val);
+    //               break;
+    //     }else if(val> currentNode.val && currentNode.right){
+    //               currentNode = currentNode.right;
+    //     }else if(val> currentNode.val && !currentNode.right){
+    //               currentNode.right = new TreeNode(val);
+    //               break;
+    //     }
+    // }
+
+    //Recursion
+    if(val<root.val&& root.left){
+        insertIntoBST(root.left, val);
+    }else if(val<root.val){
+            root.left = new TreeNode(val);
+    }else if(val> root.val && root.right){
+                insertIntoBST(root.right, val);
+    }else if(val> root.val){
+            root.right = new TreeNode(val);       
     }
+
     
     return root;
 };
