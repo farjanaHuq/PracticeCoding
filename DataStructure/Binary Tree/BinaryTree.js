@@ -6,23 +6,8 @@ class TreeNode {
         this.right = (right === undefined ? null : right);
     }
 
-    // insert(val){
-       
-
-    //     if(val<this.data && this.left){
-    //         this.left.this.insert(val);
-    //     }
-    //     else if(val<this.data){
-    //         this.left = new TreeNode(val);
-    //     }
-    //     else if(val>this.data && this.right){
-    //         this.right.this.insert(val);
-    //     }
-    //     else if(val>this.data){
-    //         this.right = new TreeNode(val);
-    //     }
-    // }
     
+  
     
 }
 
